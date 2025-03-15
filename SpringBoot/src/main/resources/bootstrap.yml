@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    username: root
+    password: cerverus1A@
+    driver-class-name: org.postgresql.Driver

@@ -1,0 +1,47 @@
+spring:
+  cloud:
+    config:
+      fail-fast: true
+ 
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: SecureChat
+  security:
+    oauth2:
+     client:
+        registration:
+          secure-chat:
+            provider: keycloak
+            client-id: YOUR_CLIENT_ID
+            client-secret: YOUR_SECRET_ID
+            authorization-grant-type: client_credentials
+            scope: openid, profile, email
+
+        provider:
+          keycloak:
+            token-uri: http://localhost:8080/realms/miRealm/protocol/openid-connect/token
+     resourceserver:
+      jwt:
+        issuer-uri: http://localhost:8080/realms/MiRealm
+
+
+
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+
+  profiles:
+    active: default
+  config:
+    import:
+    - optional:configserver:http://localhost:8888
+
+server:
+  port: 8000

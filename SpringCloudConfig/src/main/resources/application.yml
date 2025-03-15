@@ -1,0 +1,32 @@
+server:
+  port: 8888  # Cambia el puerto si es necesario
+
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: jdbc  
+  datasource:
+    url: jdbc:postgresql://localhost:5433/authDB
+    username: root 
+    password: cerverus1A@
+    driver-class-name: org.postgresql.Driver 
+  cloud:
+    config:
+      server:
+        jdbc:
+          sql: SELECT property_key, property_value FROM properties WHERE application=? AND profile=? AND label=?;
+
+        bootstrap: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/MiRealm
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    
+    
+
