@@ -19,7 +19,6 @@ SpringBoot/.gitattributes
 SpringBoot/.gitattributes
 /spring-cloud-config/target
 *.jks
-spring-cloud-config/pom.xml
 spring-cloud-config/src/.DS_Store
 spring-cloud-config/mvnw
 spring-boot/.mvn/wrapper/maven-wrapper.properties
@@ -34,3 +33,4 @@ spring-cloud-config/HELP.md
 spring-cloud-config/src/main/.DS_Store
 SpringBoot/.gitattributes
 SpringBoot/.gitattributes
+.DS_Store
